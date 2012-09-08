@@ -1,9 +1,9 @@
 #!/bin/bash
 
 usage(){
- echo "usage : "
+  echo "usage : "
   echo
-  echo "$0 [list-templates | install-run|define boxname isotmpl |build boxname|export boxname|add boxname]  boxname isotemplate" 
+  echo "$0 [list-templates | install-run|define boxname isotmpl |build boxname|export boxname|add boxname]  boxname isotemplate"
   echo
   echo "$#  $@"
   exit 1
@@ -11,7 +11,7 @@ usage(){
 
 define_box(){
     echo "Defining basebox $1 from $2"
-    echo 
+    echo
     vagrant basebox define "$1" "$2"
 }
 
@@ -73,6 +73,7 @@ create_box_and_connect(){
 available_templates(){
   vagrant basebox templates
 }
+
 check_args(){
      if [ $# -ne 1 -o $# -ne 2 ]; then
        usage
@@ -92,7 +93,7 @@ case $1 in
    ;;
    define )
        shift 1
-#       check_args $@ 
+#       check_args $@
        BOX_NAME=$1
        TEMPLATE_NAME=$2
        define_box "$BOX_NAME" "$TEMPLATE_NAME"
